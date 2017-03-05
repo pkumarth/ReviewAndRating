@@ -80,7 +80,7 @@ public class RnREndPoints {
 		logger.info("Calling addRnrInfo with Rnrinfo:-" + rnrInfo);
 		String message = null;
 		try {
-			rnrService.addRnrInfo(rnrInfo);
+			rnrService.addRnrInfo1(rnrInfo);
 			message = "succesfully Create!";
 		} catch (Exception ex) {
 			logger.error(ex.toString());

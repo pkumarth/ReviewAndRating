@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>RnR Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
+</head>
+<body>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1>RnR Summary</h1>
+
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>CatgId</th>
+								<th>CatgName</th>
+								<th>ProductId</th>
+								<th>ProductName</th>
+								<th>NoOfRating</th>
+								<th>AvgRating</th>
+								<th>TotalReview</th>
+								<th>TotalFeedback</th>
+								<th>HelpCount</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="rnrSummary : ${rnrInfo}">
+								<td th:text="${rnrSummary.verticalId}"></td>
+								<td th:text="${rnrSummary.verticalName}"></td>
+								<td th:text="${rnrSummary.itemId}"></td>
+								<td th:text="${rnrSummary.itemName}"></td>
+								<td th:text="${rnrSummary.totalNoOfRating}"></td>
+								<td th:text="${rnrSummary.totalAvgRating}"></td>
+								<td th:text="${rnrSummary.totalReview}"></td>
+								<td th:text="${rnrSummary.totalFeedback}"></td>
+								<td
+									th:text="${rnrSummary.totalUpvote +' ,' +rnrSummary.totalDownVote}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- Second Raw -->
+				<div class="row">
+					<div class="col-lg-8 col-md-7 col-sm-6">
+						<h1>Rnr Details</h1>
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>customerId</th>
+									<th>customerName</th>
+									<th>overallAvgRating</th>
+									<th>isUpvote</th>
+									<th>isDownvote</th>
+								<!-- 	<th>isfeedbackActive</th>
+									<th>isfeedbackAdminApproved</th>
+									<th>moderationStatus</th>
+									<th>moderationSComment</th> -->
+									<th>feedbackTitle</th>
+									<!-- <th>feedbackDetails</th> -->
+									<th>feedbackDesc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="rnrdetailInfo : ${rnrdetailInfos}">
+									<td th:text="${rnrdetailInfo.customerId}"></td>
+								<td th:text="${rnrdetailInfo.customerName}"></td>
+								<td th:text="${rnrdetailInfo.overallAvgRating}"></td>
+								<td th:text="${rnrdetailInfo.isUpvote}"></td>
+								<td th:text="${rnrdetailInfo.isDownvote}"></td>
+								<!-- <td th:text="${rnrdetailInfo.isfeedbackActive}"></td>
+								<td th:text="${rnrdetailInfo.moderationStatus}"></td>
+								<td th:text="${rnrdetailInfo.moderationSComment}"></td> -->
+								<td th:text="${rnrdetailInfo.feedbackTitle}"></td>
+								<!-- <td th:text="${rnrdetailInfo.feedbackDetails}"></td> -->
+								<td th:text="${rnrdetailInfo.feedbackDesc}"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
+
+

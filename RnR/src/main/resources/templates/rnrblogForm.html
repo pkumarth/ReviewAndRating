@@ -1,29 +1,110 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>RnR Greeting</title>
+<title>RnR Summary</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="/bootstrap.min.css" media="screen" />
 </head>
 <body>
-	<h3>Kindly Fill RnR Details</h3>
-	<form action="#" th:action="@{/postRnr}" th:object="${rnrInfo}"
-		method="post">
-		<p>
-			VerticalId: <input type="text" th:field="*{verticalId}" />
-		</p>
-		<p>
-			VerticalName: <input type="text" th:field="*{verticalName}" />
-		</p>
-		<p>
-			ItemId: <input type="text" th:field="*{itemId}" />
-		</p>
-		<p>
-			ItemName: <input type="text" th:field="*{itemName}" />
-		</p>
-		<p>
-			<input type="submit" value="Submit" /> <input type="reset"
-				value="Reset" />
-		</p>
-	</form>
+	<div class="container">
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-6 col-md-7 col-sm-6">
+					<h1>Write RnR</h1>
+
+					<form th:action="@{/postRnr}" method="post"
+						enctype="multipart/form-data" class="form-horizontal">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">VerticalId</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="verticalId" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">VerticalName</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="verticalName" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">ItemId</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="itemId" />
+								</div>
+							</div>
+								<div class="form-group">
+								<label class="col-lg-3 control-label">ItemName</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="itemName" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">customerId</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="customerId" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">customerName</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="customerName" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">overallAvgRating</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="overallAvgRating" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">isUpvote</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="isUpvote" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">isDownvote</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="isDownvote" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">feedbackTitle</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="feedbackTitle" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">feedbackDetails</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="feedbackDetails" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">feedbackDesc</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" name="feedbackDesc" />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="col-lg-12 col-lg-offset-3">
+									<button type="submit" class="btn btn-primary" name="button">post</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<!-- end Comment -->
+			>
+
+		</div>
+	</div>
+
 </body>
 </html>
+
+

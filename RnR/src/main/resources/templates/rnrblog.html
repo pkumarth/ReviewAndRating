@@ -26,7 +26,7 @@
 								<th>TotalFeedback</th>
 								<th>HelpCount</th>
 								<th>View</th>
-								
+
 							</tr>
 						</thead>
 						<tbody>
@@ -39,14 +39,16 @@
 								<td th:text="${rnrSummary.totalAvgRating}"></td>
 								<td th:text="${rnrSummary.totalReview}"></td>
 								<td th:text="${rnrSummary.totalFeedback}"></td>
-								<td th:text="${rnrSummary.totalUpvote +' ,' +rnrSummary.totalDownVote}"></td>
-								<td><a th:href="@{/developer/{id}(id=${developer.id})}">view</a> </td>
+								<td
+									th:text="${rnrSummary.totalUpvote +' ,' +rnrSummary.totalDownVote}"></td>
+								<td><a th:href="@{/getAllRnrDetailInfo}">view</a></td>
 
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			<h3><a th:href="@{/fetchRnrForm}">Write RnR</a></h3>
 
 		</div>
 	</div>

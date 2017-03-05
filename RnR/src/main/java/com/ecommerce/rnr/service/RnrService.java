@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.ecommerce.rnr.dto.RnrDto;
 import com.ecommerce.rnr.sql.model.RnrDetailInfo;
 import com.ecommerce.rnr.sql.model.RnrInfo;
 
@@ -21,7 +22,9 @@ public interface RnrService {
 
 	public List<RnrInfo> getRnrInfoByPopularity(Date date);
 
-	public void addRnrInfo(RnrInfo rnrInfo);
+	public void addRnrInfo(RnrDto rnrDto);
+
+	public void addRnrInfo1(RnrInfo rnrInfo);
 
 	public void updateRnrInfoByItemId(Long itemId, RnrInfo rnrInfo);
 

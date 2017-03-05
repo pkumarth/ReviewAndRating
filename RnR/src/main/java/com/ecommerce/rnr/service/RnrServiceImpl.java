@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ecommerce.rnr.dto.RnrDto;
 import com.ecommerce.rnr.sql.dao.RnrDetailInfoDao;
 import com.ecommerce.rnr.sql.dao.RnrInfoDao;
 import com.ecommerce.rnr.sql.model.RnrDetailInfo;
@@ -51,10 +52,29 @@ public class RnrServiceImpl implements RnrService {
 	}
 
 	@Override
-	public void addRnrInfo(RnrInfo rnrInfo) {
+	public void addRnrInfo(RnrDto rnrDto) {
+		RnrDetailInfo rnrdetailInfo = new RnrDetailInfo();
+		rnrdetailInfo.setCustomerId(rnrDto.getCustomerId());
+		rnrdetailInfo.setCustomerName(rnrDto.getCustomerName());
+		rnrdetailInfo.setOverallAvgRating(rnrDto.getOverallAvgRating());
+		rnrdetailInfo.setIsUpvote(rnrDto.getIsUpvote());
+		rnrdetailInfo.setIsDownvote(rnrDto.getIsDownvote());
+		rnrdetailInfo.setFeedbackTitle(rnrDto.getFeedbackTitle());
+		rnrdetailInfo.setFeedbackDesc(rnrDto.getFeedbackDesc());
+		rnrdetailInfo.setFeedbackDetails(rnrDto.getFeedbackDetails());
+		rnrDetailInfoDao.save(rnrdetailInfo);
+		RnrInfo rnrInfo = new RnrInfo();
+		rnrInfo.setItemId(rnrDto.getItemId());
+		rnrInfo.setItemName(rnrDto.getItemName());
+		rnrInfo.setVerticalId(rnrDto.getVerticalId());
+		rnrInfo.setVerticalName(rnrDto.getVerticalName());
+		rnrInfoDao.save(rnrInfo);
+
+	}
+	public void addRnrInfo1(RnrInfo rnrInfo)
+	{
 		rnrInfoDao.save(rnrInfo);
 	}
-
 	public void updateRnrInfoByItemId(Long itemId, RnrInfo rnrInfo) {
 
 		rnrInfoDao.setUserInfoById(rnrInfo.getTotalNoOfRating(), rnrInfo.getTotalAvgRating(), rnrInfo.getTotalReview(),
@@ -74,7 +94,7 @@ public class RnrServiceImpl implements RnrService {
 
 	@Override
 	public void addRnrDetailInfo(RnrDetailInfo rnrdetailInfo) {
-		 rnrDetailInfoDao.save(rnrdetailInfo);
+		rnrDetailInfoDao.save(rnrdetailInfo);
 	}
 
 	@Override

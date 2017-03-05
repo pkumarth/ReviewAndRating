@@ -10,15 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ecommerce.rnr.dto.RnrDto;
 import com.ecommerce.rnr.service.RnrService;
 import com.ecommerce.rnr.sql.model.RnrInfo;
 
 @Controller
-public class GreetingController {
+public class RnrController {
 	/*
 	 * @Autowired private MailService mailService;
 	 */
-	private static final Logger logger = LoggerFactory.getLogger(GreetingController.class);
+	private static final Logger logger = LoggerFactory.getLogger(RnrController.class);
 	@Autowired
 	private RnrService rnrService;
 
@@ -28,7 +29,7 @@ public class GreetingController {
 	}
 
 	@RequestMapping("/rnr")
-	public String greeting(@RequestParam(value = "rnrInfo", required = false, defaultValue = "RnR") String rnrInfo,
+	public String getAllRnrInfo(@RequestParam(value = "rnrInfo", required = false, defaultValue = "RnR") String rnrInfo,
 			Model model) {
 		model.addAttribute("rnrInfo", rnrService.getAllRnrInfo());
 		// mailService.prepareAndSend("pktnitk50@gmail.com", "Hi Pkt");
@@ -44,15 +45,25 @@ public class GreetingController {
 
 	// @PostMapping("/greeting")
 	@RequestMapping(method = RequestMethod.POST, value = "/postRnr")
-	public String RnrSubmit(@ModelAttribute RnrInfo rnrInfo) {
-		logger.info("Item Name :=" + rnrInfo.getItemName());
+	public String RnrSubmit(@ModelAttribute RnrDto rnrdto) {
+		logger.info("Item Name :=" + rnrdto.getItemName());
 		try {
-			rnrService.addRnrInfo(rnrInfo);
+			rnrService.addRnrInfo(rnrdto);
 		} catch (Exception ex) {
 			logger.error("Error" + ex);
 			return "error";
 		}
 		return "result";
+	}
+
+	@RequestMapping("/getAllRnrDetailInfo")
+	public String getAllRnrDetailInfo(
+			@RequestParam(value = "rnrdetailInfos", required = false, defaultValue = "RnRDetails") String rnrdetailInfos,
+			Model model) {
+		model.addAttribute("rnrdetailInfos", rnrService.fetchAllRnrDetailInfo());
+		model.addAttribute("rnrInfo", rnrService.getAllRnrInfo());
+		// mailService.prepareAndSend("pktnitk50@gmail.com", "Hi Pkt");
+		return "rnrDetails";
 	}
 
 }
