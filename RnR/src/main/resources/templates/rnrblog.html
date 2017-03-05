@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>RnR Information</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h3>RnR All Info</h3>
+	<p th:text="'Hello, ' + ${rnrinfo} + '!'" />	
+    <table  class="table table-bordered table-hover table-striped">
+      <tr>
+      	<th>RnrInfoId</th>
+      	<th>VerticalId</th>
+        <th>VerticalName</th>
+        <th>ItemId</th>
+        <th>ItemName</th>
+        
+        <th>TotalNoOfRating</th>
+      	<th>TotalAvgRating</th>
+        <th>TotalReview</th>
+        <th>TotalFeedback</th>
+        <th>TotalUpvote</th>
+        <th>TotalDownVote</th>
+      </tr>
+      <tr th:each="emp,iterationStatus  : ${employees}">
+      	<td th:text="${iterationStatus.count}">1</td>
+        <td th:text="${emp.id}">001</td>
+        <td th:text="${emp.name}">Name</td>
+        <td th:text="${emp.city}">City</td>
+        <td th:text="${emp.country}">Country</td>
+      </tr>
+    </table>
+</body>
+</html>
+
+	<!-- @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long rnrInfoId;	
+	@NotNull
+	private Long verticalId;
+	@NotNull
+	private String verticalName;
+	@NotNull
+	@Column(nullable = false, unique = false)
+	private String itemName;
+	@NotNull
+	@Column(nullable = false, unique = true)
+	private Long itemId;
+	
+	private Long totalNoOfRating;
+	private Double totalAvgRating;
+	private Long totalReview;
+	private Long totalFeedback;
+	private Long totalUpvote;
+	private Long totalDownVote; -->
+	

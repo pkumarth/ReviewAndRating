@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>RnrSubmissionResult</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<p th:text="'verticalName: ' + ${rnrInfo.verticalName}" />
+	<p th:text="'itemName: ' + ${rnrInfo.itemName}" />
+	<a href="/fetchRnrForm">Submit another Rnr</a>
+</body>
+</html>

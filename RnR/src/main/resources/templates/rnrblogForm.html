@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>RnR Greeting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h3>Kindly Fill RnR Details</h3>
+	<form action="#" th:action="@{/postRnr}" th:object="${rnrInfo}"
+		method="post">
+		<p>
+			VerticalId: <input type="text" th:field="*{verticalId}" />
+		</p>
+		<p>
+			VerticalName: <input type="text" th:field="*{verticalName}" />
+		</p>
+		<p>
+			ItemId: <input type="text" th:field="*{itemId}" />
+		</p>
+		<p>
+			ItemName: <input type="text" th:field="*{itemName}" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
+</body>
+</html>
